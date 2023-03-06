@@ -3,9 +3,11 @@ package gameobjects;
 import java.util.ArrayList;
 
 public class ThingList extends ArrayList<Thing> {
-    public void getThings() {
-        if(this.size() == 0) System.out.println("Nothing.\n");
-        else for (Thing thing : this) System.out.println(thing.getName()+": "+thing.getDescription());
+    public String getThings() {
+        String string = "";
+        if(this.size() == 0) string = "nothing\n";
+        else for (Thing thing : this) string += (thing.getName()+": "+thing.getDescription()+", \n");
+        return string;
     }
     public Thing thisThing(String name) {
         Thing thing = null;

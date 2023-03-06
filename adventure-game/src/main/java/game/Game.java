@@ -13,8 +13,13 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import static game.GameMessages.*;
-import static game.GameMessages.showInventory;
-
+/*
+* TODO :
+*       other characters
+*       items
+*       item interaction
+*
+* */
 public class Game {
     /*
      * Initialize map, characters, commands, objects
@@ -26,8 +31,8 @@ public class Game {
      * For parsing user string input
      */
     protected List <String> commands = new ArrayList<>(Arrays.asList(
-            "take", "drop", "look",
-            "n", "s", "e", "w"
+            "take", "drop", "look", "help", "i", "inventory", "i",
+            "north", "n", "south", "s", "east", "e", "west", "w"
     ));
     protected List <String> objects = new ArrayList<>(Arrays.asList(
             "sword", "ring", "snake"
@@ -179,15 +184,19 @@ public class Game {
         if (!commands.contains(verb)) System.out.println(verb+" is not a known verb!");
         else {
             switch (verb) {
+                case "north":
                 case "n":
                     goN();
                     break;
+                case "south":
                 case "s":
                     goS();
                     break;
+                case "east":
                 case "e":
                     goE();
                     break;
+                case "west":
                 case "w":
                     goW();
                     break;
@@ -197,8 +206,11 @@ public class Game {
                     break;
                 case "inventory":
                 case "i":
-                    showInventory(playerInventory);
+                    showPlayerInventory(playerInventory);
                     break;
+                case "help":
+                case "h":
+                    showHelp(commands);
                 default:
                     return verb+" [Not yet implemented]";
             }
