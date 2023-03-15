@@ -1,5 +1,10 @@
 package gameobjects;
 
+/*
+* For possible HashMap map
+* import globals.Rooms;
+ */
+
 public class Room extends ThingHolder{
     private int n, s, w, e;
 
